@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "paths": {
+      "angular-remoteA/Routes": [
+        "apps/angular-remoteA/src/app/remote-entry/entry.routes.ts"
+      ],
+      "angular-remoteB/Routes": [
+        "apps/angular-remoteB/src/app/remote-entry/entry.routes.ts"
+      ],
+      "react-remote-a/Module": ["apps/react-remote-a/src/remote-entry.ts"],
+      "react-remote-b/Module": ["apps/react-remote-b/src/remote-entry.ts"]
+    }
+  },
+  "include": [
+    "apps/react-remote-a/src/**/*.tsx",
+    "apps/react-remote-b/src/**/*.tsx",
+    "apps/angular-remoteA/src/**/*.ts",
+    "apps/angular-remoteB/src/**/*.ts"
+  ],
+  "exclude": ["node_modules", "tmp"]
+}
