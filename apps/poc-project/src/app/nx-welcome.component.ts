@@ -2,6 +2,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+console.log('NxWelcomeComponent is being loaded');
 
 @Component({
   selector: 'app-nx-welcome',

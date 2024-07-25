@@ -58,8 +58,8 @@
     "serve": {
       "executor": "@nx/angular:dev-server",
       "options": {
-        "port": 4201,
-        "publicHost": "http://localhost:4201"
+        "port": 4210,
+        "publicHost": "http://localhost:4210"
       },
       "configurations": {
         "production": {
@@ -92,7 +92,7 @@
       "defaultConfiguration": "production",
       "options": {
         "buildTarget": "angular-remoteA:build",
-        "port": 4201,
+        "port": 4210,
         "watch": false
       },
       "configurations": {

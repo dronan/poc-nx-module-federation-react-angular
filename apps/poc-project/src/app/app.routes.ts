@@ -1,18 +1,22 @@
 import { Route } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { WebComponentWrapper } from './web-component-wrapper.component';
+import { loadRemoteModule } from '@nx/angular/mf';
+
+console.log('App routes is being loaded');
 
 export const appRoutes: Route[] = [
-  { path: '', component: NxWelcomeComponent },
+  { path: '', 
+    redirectTo: 'remote-a',
+    pathMatch: 'full',
+  },
   {
     path: 'remoteA',
-    loadChildren: () =>
-      import('angular-remoteA/Routes').then((m) => m.remoteRoutes),
+    loadChildren: () => loadRemoteModule('angular-remoteA', './Routes').then((m) => m.remoteRoutes),
   },
   {
     path: 'remoteB',
-    loadChildren: () =>
-      import('angular-remoteB/Routes').then((m) => m.remoteRoutes),
+    loadChildren: () => loadRemoteModule('angular-remoteB', './Routes').then((m) => m.remoteRoutes),
   },
   {
     path: 'remote-a',

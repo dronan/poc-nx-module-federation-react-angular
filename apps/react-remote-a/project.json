@@ -20,8 +20,9 @@
           "apps/react-remote-a/src/favicon.ico",
           "apps/react-remote-a/src/assets"
         ],
-        "styles": ["apps/react-remote-a/src/styles.css"],
+        "styles": [],
         "scripts": [],
+        "isolatedConfig": true,
         "webpackConfig": "apps/react-remote-a/webpack.config.ts"
       },
       "configurations": {

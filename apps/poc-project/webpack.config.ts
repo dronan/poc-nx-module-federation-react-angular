@@ -1,20 +1,6 @@
 import { withModuleFederation } from '@nx/angular/module-federation';
-import { container } from 'webpack';
-const ModuleFederationPlugin = container.ModuleFederationPlugin;
-const { DtsBundleWebpack } = require('@module-federation/dts-plugin');
-const config = require('./module-federation.config');
-const path = require('path');
+import moduleFederationConfig from './module-federation.config';
 
-module.exports = withModuleFederation({
-  ...config,
-  plugins: [
-    new ModuleFederationPlugin({
-      ...config,
-    }),
-    new DtsBundleWebpack({
-      name: config.name,
-      baseDir: path.resolve(__dirname, 'src'),
-      outFile: path.resolve(__dirname, 'dist/@mf-types.zip'),
-    }),
-  ],
-});
+console.log('Webpack config is being loaded');
+
+export default withModuleFederation(moduleFederationConfig);
