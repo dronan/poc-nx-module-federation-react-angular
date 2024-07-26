@@ -1,0 +1,93 @@
+{
+  "name": "main-shell-angular",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/main-shell-angular/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/main-shell-angular",
+        "index": "apps/main-shell-angular/src/index.html",
+        "main": "apps/main-shell-angular/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/main-shell-angular/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/main-shell-angular/src/favicon.ico",
+          "apps/main-shell-angular/src/assets"
+        ],
+        "styles": ["apps/main-shell-angular/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/main-shell-angular/webpack.config.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/main-shell-angular/webpack.prod.config.ts"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:module-federation-dev-server",
+      "options": {
+        "port": 4200,
+        "publicHost": "http://localhost:4200",
+        "buildTarget": "main-shell-angular:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "main-shell-angular:build:production"
+        },
+        "development": {
+          "buildTarget": "main-shell-angular:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "main-shell-angular:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/main-shell-angular/jest.config.ts"
+      }
+    }
+  }
+}

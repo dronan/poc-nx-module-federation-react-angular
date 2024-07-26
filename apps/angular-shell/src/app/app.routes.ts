@@ -3,14 +3,14 @@ import { Route } from '@angular/router';
 
 export const appRoutes: Route[] = [
   {
-    path: 'angular-remoteB',
+    path: 'angular-remote-b',
     loadChildren: () =>
-      import('angular-remoteB/Routes').then((m) => m.remoteRoutes),
+      import('angular-remote-b/Module').then((m) => m.RemoteEntryModule),
   },
   {
-    path: 'angular-remoteA',
+    path: 'angular-remote-a',
     loadChildren: () =>
-      import('angular-remoteA/Routes').then((m) => m.remoteRoutes),
+      import('angular-remote-a/Module').then((m) => m.RemoteEntryModule),
   },
   {
     path: '',

@@ -1,8 +1,14 @@
-// app.tsx
-import React from 'react';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import styles from './app.module.scss';
 
-const App: React.FC = () => {
-  return <div>Ola</div>;
-};
+import NxWelcome from './nx-welcome';
+
+export function App() {
+  return (
+    <div>
+      <NxWelcome title="react-remote-a" />
+    </div>
+  );
+}
 
 export default App;

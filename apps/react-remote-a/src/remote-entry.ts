@@ -1,2 +1,1 @@
-export { default } from './bootstrap';
-
+export { default } from './app/app';

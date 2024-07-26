@@ -61,11 +61,14 @@
         "^production",
         {
           "env": "NX_MF_DEV_REMOTES"
+        },
+        {
+          "env": "NX_MF_DEV_SERVER_STATIC_REMOTES"
         }
       ]
     }
   },
-  "defaultProject": "poc-project",
+  "defaultProject": "main-shell-angular",
   "generators": {
     "@nx/angular:application": {
       "e2eTestRunner": "none",
@@ -88,5 +91,22 @@
         "linter": "eslint"
       }
     }
-  }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx/cypress/plugin",
+      "options": {
+        "targetName": "e2e",
+        "componentTestingTargetName": "component-test",
+        "ciTargetName": "e2e-ci",
+        "openTargetName": "open-cypress"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
+  ]
 }

@@ -54,7 +54,7 @@
       "options": {
         "buildTarget": "react-shell:build",
         "hmr": true,
-        "port": 4200
+        "port": 4208
       },
       "configurations": {
         "development": {
@@ -82,7 +82,7 @@
       "options": {
         "buildTarget": "react-shell:build",
         "watch": false,
-        "port": 4200
+        "port": 4208
       },
       "configurations": {
         "development": {

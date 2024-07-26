@@ -20,9 +20,8 @@
           "apps/react-remote-b/src/favicon.ico",
           "apps/react-remote-b/src/assets"
         ],
-        "styles": [],
+        "styles": ["apps/react-remote-b/src/styles.css"],
         "scripts": [],
-        "isolatedConfig": true,
         "webpackConfig": "apps/react-remote-b/webpack.config.ts"
       },
       "configurations": {
@@ -55,7 +54,7 @@
       "options": {
         "buildTarget": "react-remote-b:build",
         "hmr": true,
-        "port": 4204
+        "port": 4210
       },
       "configurations": {
         "development": {
@@ -67,23 +66,13 @@
         }
       }
     },
-    "lint": {
-      "executor": "@nx/eslint:lint"
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": {
-        "jestConfig": "apps/react-remote-b/jest.config.ts"
-      }
-    },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "defaultConfiguration": "production",
       "options": {
         "buildTarget": "react-remote-b:build",
         "watch": false,
-        "port": 4204
+        "port": 4210
       },
       "configurations": {
         "development": {
@@ -92,6 +81,13 @@
         "production": {
           "buildTarget": "react-remote-b:build:production"
         }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/react-remote-b/jest.config.ts"
       }
     }
   }
