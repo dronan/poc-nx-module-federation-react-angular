@@ -1,13 +1,19 @@
 import { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
+import NxWelcome from './app/nx-welcome';
 
-import App from './app/app';
+class MfeReactApp extends HTMLElement {
+  connectedCallback() {
+    const container = document.getElementsByTagName('mft-wc-wrapper')[0] as HTMLElement;
+    const root = createRoot(container);
+    root.render(
+      <StrictMode>
+        <NxWelcome title="react-remote-b" />
+      </StrictMode>,
+    );
+  }
+}
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement,
-);
-root.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+customElements.define('react-remote-b-bootstrap-page', MfeReactApp);
+
+export default MfeReactApp;
